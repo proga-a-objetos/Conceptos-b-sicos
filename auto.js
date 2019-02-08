@@ -1,15 +1,43 @@
-class Auto {
-    constructor(marca, modelo, color, kilometraje) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.color = color;
-        this.kilometraje = kilometraje;
-        this.estado = "Apagado";
+export default class Auto {
+    constructor(marca, modelo, color= "blanco", kilometraje=0) {
+        this._marca = marca;
+        this._modelo = modelo;
+        this._color = color;
+        this._kilometraje = kilometraje;
+        this._estado = "Apagado";
+    }
+
+    get color() {
+        return this._color;
+    }
+
+    set color(color) {
+        this._color = color.toUpperCase();
+    }
+
+
+    mostrarEstado() {
+        console.log(`El auto ${this._marca} ${this._color}
+        del año ${this._modelo} tiene un kilometraje de
+        ${this._kilometraje}kms y está ${this._estado} `);
     }
     encender() {
-        this.estado = "Encendido";
+        this._estado = "Encendido";
+        this.mostrarEstado();
     }
     apagar() {
-        this.estado = "Apagado";
+        this._estado = "Apagar";
+        this.mostrarEstado;
+    }
+
+    avanzar(velocidad, tiempo) {
+        if(this._estado === "Apagado") {
+            console.log('El auto no puede avanzar porque esta apagado');
+        }
+        else{
+            let distancia = velocidad * tiempo;
+            this._kilometraje = this._kilometraje + distancia;
+            this.mostrarEstado();
+        }
     }
 }
