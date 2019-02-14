@@ -9,6 +9,7 @@ console.log(`Color ${auto2.color}`); // lectura
 
 auto1.color = "Amarrillo"; // escritura
 auto2.color = "Azul"; // escritura1
+auto1.modelo = 1990;
 
 auto2.encender();
 auto3.encender();
